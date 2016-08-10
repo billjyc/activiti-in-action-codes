@@ -54,6 +54,37 @@ Activiti项目负责人Tijs Rademakers高度认可并推荐，根据Activiti新�
 * 亚马逊（还未上架）。。。
 * X宝：自己搜索吧，但请支持正版
 
+# 下载依赖失败解决办法
+
+鉴于国内网络特殊问题，`建议`使用**开源中国**提供的Maven仓库代理中央仓库，参考 [http://maven.oschina.net/help.html](http://maven.oschina.net/help.html)
+推荐`settings.xml`内容：
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<settings xmlns="http://maven.apache.org/settings/1.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">
+
+	<mirrors>
+		<!-- mirror | Specifies a repository mirror site to use instead of a given
+			repository. The repository that | this mirror serves has an ID that matches
+			the mirrorOf element of this mirror. IDs are used | for inheritance and direct
+			lookup purposes, and must be unique across the set of mirrors. | -->
+		<mirror>
+			<id>nexus-osc</id>
+			<mirrorOf>central</mirrorOf>
+			<name>Nexus osc</name>
+			<url>http://maven.oschina.net/content/groups/public/</url>
+		</mirror>
+		<mirror>
+			<id>nexus-osc-thirdparty</id>
+			<mirrorOf>thirdparty</mirrorOf>
+			<name>Nexus osc thirdparty</name>
+			<url>http://maven.oschina.net/content/repositories/thirdparty/</url>
+		</mirror>
+	</mirrors>
+</settings>
+```
+
 # 那啥
 
 没有买书？觉得源码有料？买本书吧，也就少喝两杯咖啡而已~~~
